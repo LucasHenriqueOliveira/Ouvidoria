@@ -1,0 +1,45 @@
+<form name="add.form" class="form-horizontal">
+  	<fieldset class="scheduler-border">
+  		<legend class="scheduler-border">Cadastro</legend>
+    
+      <div class="form-group">
+        <label for="local" class="col-sm-2 control-label">Local</label>
+        <div class="col-sm-4">
+          <select name="local" id="local" ng-model="add.local" class="form-control" ng-options="local.local for local in add.locais track by local.id" required>
+          	<option value="">Selecione o local</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mes" class="col-sm-2 control-label">Mês</label>
+        <div class="col-sm-4">
+          <select name="mes" id="mes" ng-model="add.mes" class="form-control" ng-options="mes.mes for mes in add.meses track by mes.id" required>
+          	<option value="">Selecione o mês</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="ano" class="col-sm-2 control-label">Ano</label>
+        <div class="col-sm-4">
+          <select name="ano" id="ano" ng-model="add.ano" class="form-control" ng-options="ano.ano for ano in add.anos track by ano.ano" required>
+          	<option value="">Selecione o ano</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="quantidade" class="col-sm-2 control-label">Quantidade</label>
+        <div class="col-sm-4">
+          <input class="form-control" id="quantidade" name="quantidade" ng-model="add.quantidade" type="text" placeholder="Informe a quantidade" required>
+        </div>
+      </div>
+      <alert ng-repeat="alert in add.alerts" ng-show="add.alerts" type="{{alert.type}}" close="add.closeAlert($index)">{{alert.msg}}</alert>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+        	<a href="#/dash" class="btn btn-default">Voltar</a>
+          	<button type="reset" class="btn btn-default">Limpar</button>
+          	<button type="submit" ng-click="add.submit()" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    
+   	</fieldset>
+</form>
